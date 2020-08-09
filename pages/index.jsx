@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import { TweenMax } from "gsap";
 
 export default function Home() {
+  const router = useRouter();
   const container = useRef();
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -37,9 +40,8 @@ export default function Home() {
       >
         <a
           className="hvr-float-shadow has-background-warning"
-          // className="has-background-warning"
           style={{ padding: 0, width: 300, borderRadius: "18px 18px 0px 0px" }}
-          onClick={() => Router.push("/vocab")}
+          onClick={() => router.push("/vocab")}
         >
           <h1
             className="title is-4 has-text-black"
@@ -68,7 +70,7 @@ export default function Home() {
         <a
           className="hvr-float-shadow has-background-danger"
           style={{ padding: 0, width: 300, borderRadius: "18px 18px 0px 0px" }}
-          onClick={() => Router.push("/game")}
+          onClick={() => router.push("/game")}
         >
           <h1
             className="title is-4"

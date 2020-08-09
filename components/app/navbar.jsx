@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useRouter } from "next/router";
+
+import { AppContext } from "../../context";
 
 export default function Navbar() {
+  const { username } = useContext(AppContext);
+  const router = useRouter();
+
+  const Logout = () => {
+    localStorage.removeItem("username");
+    router.reload();
+  };
+
   return (
     <div
       style={{
@@ -22,9 +33,13 @@ export default function Navbar() {
       </ul>
       <ul>
         <li>
-          <a className="has-text-white" href="/">
-            Login
-          </a>
+          <span
+            className="has-text-white"
+            style={{ cursor: "pointer" }}
+            onClick={Logout}
+          >
+            {username}
+          </span>
         </li>
       </ul>
     </div>
