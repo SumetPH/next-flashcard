@@ -32,27 +32,27 @@ export default function Vocab() {
     return (
       <div
         className="column is-12"
-        style={{ display: "flex", justifyContent: "center" }}
-        key={index}
+        style={{
+          display: "flex",
+          justifyContent: "center"
+        }}
       >
-        <Card item={item} deleteCard={deleteCard} />
+        <Card item={item} deleteCard={deleteCard} key={index} />
       </div>
     );
   });
   return (
-    <div className="has-background-primary" style={{ minHeight: "110vh" }}>
-      <div className="columns is-multiline" style={{ paddingTop: 50 }}>
+    <div className="has-background-primary" style={{ minHeight: "100vh" }}>
+      <div className="column" style={{ paddingTop: 80 }}>
         {list}
       </div>
-      <div className="columns" style={{ paddingTop: 30 }}>
-        <div className="column has-text-centered">
-          <button
-            className="button is-warning hvr-pop"
-            onClick={() => router.push("/vocab/add")}
-          >
-            Add Vocab
-          </button>
-        </div>
+      <div className="column has-text-centered" style={{ paddingTop: 30 }}>
+        <button
+          className="button is-warning hvr-pop"
+          onClick={() => router.push("/vocab/add")}
+        >
+          Add Vocab
+        </button>
       </div>
     </div>
   );
