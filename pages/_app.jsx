@@ -6,14 +6,15 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { AppContext } from "../context";
 import Login from "../components/app/login";
-import Navbar from "../components/app/navbar";
+
+import axios from "axios";
 
 function MyApp({ Component, pageProps }) {
   const [username, setUsername] = useState();
 
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
-  }, []);
+  });
 
   return (
     <AppContext.Provider value={{ username, setUsername }}>
@@ -25,14 +26,7 @@ function MyApp({ Component, pageProps }) {
           type="image/x-icon"
         />
       </Head>
-      {username === null ? (
-        <Login />
-      ) : (
-        <>
-          <Navbar />
-          <Component {...pageProps} />
-        </>
-      )}
+      {username === null ? <Login /> : <Component {...pageProps} />}
     </AppContext.Provider>
   );
 }
