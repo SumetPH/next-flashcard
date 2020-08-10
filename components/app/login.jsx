@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { AppContext } from "../../context";
+import { AppContext } from "../../lib/context";
 import Axios from "axios";
 
 export default function Login() {
@@ -14,14 +14,14 @@ export default function Login() {
   const handleLogin = () => {
     console.log(state);
     Axios.post("http://localhost:3000/api/login", {
-      username: state,
+      username: state
     })
-      .then((res) => {
+      .then(res => {
         console.log(res.data);
         localStorage.setItem("username", res.data);
-        setUsername(res.data);
+        setUsername("Someone");
       })
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   };
 
   return (
@@ -44,7 +44,7 @@ export default function Login() {
                 className="input is-success"
                 type="text"
                 name="username"
-                onChange={(e) => setState(e.target.value)}
+                onChange={e => setState(e.target.value)}
               />
             </div>
           </div>

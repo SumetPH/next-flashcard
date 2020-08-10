@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 
-import { AppContext } from "../../context";
-
-export default function Navbar({ theme = "hsl(171, 100%, 41%)" }) {
+import { AppContext } from "../../lib/context";
+export default function Navbar() {
   const { username } = useContext(AppContext);
   const router = useRouter();
 
@@ -11,7 +10,6 @@ export default function Navbar({ theme = "hsl(171, 100%, 41%)" }) {
     localStorage.removeItem("username");
     router.reload();
   };
-
   return (
     <div
       style={{

@@ -56,6 +56,7 @@ app.prepare().then(() => {
   server.get("/api/card/:username", (req, res, next) => {
     try {
       db.collection(req.params.username)
+        .orderBy("created_at", "desc")
         .get()
         .then(snap => {
           let data = [];
@@ -82,7 +83,8 @@ app.prepare().then(() => {
       .set({
         word: req.body.word,
         hint: req.body.hint,
-        trans: req.body.trans
+        trans: req.body.trans,
+        created_at: new Date()
       })
       .then(() => {
         return res.json("card created.");

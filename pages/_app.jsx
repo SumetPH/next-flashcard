@@ -4,10 +4,8 @@ import "../css/hover.min.css";
 
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { AppContext } from "../context";
+import { AppContext } from "../lib/context";
 import Login from "../components/app/login";
-
-import axios from "axios";
 
 function MyApp({ Component, pageProps }) {
   const [username, setUsername] = useState();

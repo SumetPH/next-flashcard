@@ -46,7 +46,7 @@ export default function Home() {
             style={{
               padding: 0,
               width: 300,
-              borderRadius: "18px 18px 0px 0px"
+              borderRadius: "18px"
             }}
             onClick={() => {
               router.push("/vocab");
@@ -81,7 +81,7 @@ export default function Home() {
             style={{
               padding: 0,
               width: 300,
-              borderRadius: "18px 18px 0px 0px"
+              borderRadius: "18px"
             }}
             onClick={() => {
               router.push("/game");
