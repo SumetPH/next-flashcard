@@ -13,7 +13,7 @@ export default function Login() {
 
   const handleLogin = () => {
     console.log(state);
-    Axios.post("http://localhost:3000/api/login", {
+    Axios.post("/api/login", {
       username: state
     })
       .then(res => {
