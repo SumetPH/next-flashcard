@@ -36,8 +36,9 @@ export default function Vocab() {
           display: "flex",
           justifyContent: "center"
         }}
+        key={index}
       >
-        <Card item={item} deleteCard={deleteCard} key={index} />
+        <Card item={item} deleteCard={deleteCard} />
       </div>
     );
   });
